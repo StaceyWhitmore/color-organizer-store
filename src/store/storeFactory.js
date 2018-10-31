@@ -5,11 +5,33 @@ import stateData from '../../data/initialState'//.js
 //import { v4 } from 'uuid'//npm uuid
 
 
-const logger
+//some middleware for logging dispatched actions to the console
+const logger = store => next => action {
+  let result
+  console.groupCollapsed("dispatching", action.type)//([optional label])
+  console.log('prev state', store.getState())
+  console.log('action', action)
+  result = next(action)
+  console.log('next state', store.getState())
+  console.groupEnd()
+  return result
+}//close logger()
 
-const save
+//a piece of middleware for saving state to local storage
+const saver = store => next => action => {
+  let result = next(action)
+  localStorage['redux-store'] = JSON.stringify(store.getState())
+  return result
+}
 
-const storeFactory
+const storeFactory = (initialState=stateData) =>
+  //apply two middleware pieces created above: logger & saver
+  applyMiddleware(logger, saver)(createStore)(
+    combineReuducers({colors, sort}),
+    (localStorage['redux-store']) ?
+      JSON.parse(localStorage['redux-store']) :
+      initialState
+  )
 
 export default storeFactory
 
