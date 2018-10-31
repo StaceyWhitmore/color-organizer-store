@@ -4,7 +4,6 @@ import { addColor, removeColor, rateColor, sortColors } from './actions'//.js
 //const store = storeFactory()
 const store = storeFactory()
 
-
 store.dispatch(addColor("rio verde", "#67bf4f"))
 store.dispatch(rateColor("95d9acee-6ae6-4d7b-8499-65b145032979", 3))
 store.dispatch(sortColors("date"))

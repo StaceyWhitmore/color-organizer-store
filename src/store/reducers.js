@@ -1,10 +1,10 @@
 //the reducer functions for updating specific parts of the state tree
 //..to eventually be combined into one reducer.
 //Remember reducers have NO SIDE EFFECTS
-import C from '../constants'//'AC' for Action Constants
+import C from '../constants'//'C' for Action Constants
 
 //{}
-export const color = ({state={}, action}) => {
+export const color = (state={}, action) => {
   switch(action.type) {
     case C.ADD_COLOR :
       return {
@@ -21,8 +21,10 @@ export const color = ({state={}, action}) => {
   }//close switch
 }//close color() reducer
 
+
+
 //[]
-export const colors= ({state=[], action}) => {
+export const colors = (state=[], action) => {
   switch (action.type) {
     case C.ADD_COLOR :
       return [
@@ -43,7 +45,7 @@ export const colors= ({state=[], action}) => {
 }//close colors() reducer
 
 // ""
-export const sort = ({state="SORTED_BY_TITLE", action}) => {
+export const sort = (state="SORTED_BY_TITLE", action) => {
   switch (action.type) {
     case C.SORT_COLORS :
       return action.sortBy

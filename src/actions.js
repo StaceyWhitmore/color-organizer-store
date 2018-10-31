@@ -9,15 +9,19 @@ export const removeColor = id =>
   id //passed in on invocation
 })
 
-export const addColor = ()=>
+export const addColor = (title, color)=>
 ({
-  type C.ADD_COLOR,
-  id
+  type: C.ADD_COLOR,
+  id: v4(),
+  title,
+  color,
+  timestamp: new Date().toString()
 })
 
-export const rateColor = () =>
+export const rateColor = (id, rating) =>
 ({
   type: C.RATE_COLOR,
+  id,
   rating
 })
 

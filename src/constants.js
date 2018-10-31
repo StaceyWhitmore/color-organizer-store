@@ -1,4 +1,4 @@
-//imported as 'AC' for action creators
+//imported as 'C' for action creators
 const constants = {
   ADD_COLOR:"ADD_COLOR",
   REMOVE_COLOR: "REMOVE_COLOR",
@@ -6,4 +6,4 @@ const constants = {
   SORT_COLORS:"SORT_COLOR"
 }
 
-export default contants
+export default constants

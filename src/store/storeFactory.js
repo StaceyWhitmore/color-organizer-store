@@ -6,7 +6,7 @@ import stateData from '../../data/initialState'//.js
 
 
 //some middleware for logging dispatched actions to the console
-const logger = store => next => action {
+const logger = store => next => action => {
   let result
   console.groupCollapsed("dispatching", action.type)//([optional label])
   console.log('prev state', store.getState())
@@ -27,7 +27,7 @@ const saver = store => next => action => {
 const storeFactory = (initialState=stateData) =>
   //apply two middleware pieces created above: logger & saver
   applyMiddleware(logger, saver)(createStore)(
-    combineReuducers({colors, sort}),
+    combineReducers({colors, sort}),
     (localStorage['redux-store']) ?
       JSON.parse(localStorage['redux-store']) :
       initialState
