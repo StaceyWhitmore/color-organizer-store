@@ -1,5 +1,5 @@
-//the reducers functions
-import AC from '../constants'//'AC' for Action Constants
+//the stubbed reducers functions
+import C from '../constants'//'AC' for Action Constants
 
 //{}
 export const color = ({state={}, action}) => {
@@ -12,6 +12,6 @@ export const colors= ({state=[], action}) => {
 }
 
 // ""
-export const sort = ({state="", action}) => {
+export const sort = ({state="SORTED_BY_TITLE", action}) => {
   return ""
 }
